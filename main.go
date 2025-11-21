@@ -15,6 +15,10 @@ func main() {
 	const max = 9         //where it should end
 	const sleepTime = 144 //how long it takes to break a picaxe or until it switches to the next
 	//If mining cobblestone with a cobblestone generator, remember to account for the time it takes to replace the cobblestone
+	fmt.Println("Afker v1.0")
+	fmt.Println("Move your mouse to your posistion")
+	fmt.Println("Starting in: 10 seconds")
+	time.Sleep(10 * time.Second)
 
 	currentSpace := min
 
