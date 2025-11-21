@@ -20,9 +20,9 @@ You need [Go](https://go.dev/dl/) installed on your system.
 2. During installation, make sure "Add to PATH" is selected
 3. After installation, open a new Command Prompt or PowerShell window to verify: `go version`
 
-**For Windows users (optional):**
-- If you want to build from source, you'll need GCC (via MinGW-w64 or TDM-GCC)
-- However, you can also download pre-built binaries from the releases page
+**Building from source (Windows):**
+- You'll need GCC installed (via MinGW-w64 or TDM-GCC) to build robotgo from source
+- Alternatively, you can download pre-built binaries from the releases page if available
 
 ### Quick Start (Windows)
 

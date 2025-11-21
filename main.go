@@ -11,9 +11,9 @@ import (
 func main() {
 	// Example for a copper pickaxe mining cobblestone
 	// Set hotbar spaces that have copper pickaxes (inclusive)
-	const min = 1         // Where the pickaxe line starts (hotbar slot 1-9)
-	const max = 9         // Where it should end (hotbar slot 1-9)
-	const sleepTime = 144 // How long it takes to break a pickaxe or until it switches to the next
+	const min = 1         // First hotbar slot with a pickaxe
+	const max = 9         // Last hotbar slot with a pickaxe
+	const sleepTime = 144 // Seconds to wait before switching to the next slot
 	// If mining cobblestone with a cobblestone generator, remember to account for the time it takes to replace the cobblestone
 	fmt.Println("Afker v1.0")
 	fmt.Println("Move your mouse to your position")
