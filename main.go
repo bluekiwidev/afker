@@ -1,6 +1,7 @@
-package afker
+package main
 
 import (
+	"fmt"
 	"strconv"
 	"time"
 
@@ -16,13 +17,16 @@ func main() {
 
 	robotgo.MouseDown("left")
 	defer robotgo.MouseUp("left")
+	fmt.Println("Mouse is down")
+	defer fmt.Println("Mouse is up")
 
 	for currentSpace <= max {
+		fmt.Println("Waiting for picaxe to break")
+		time.Sleep(144 * time.Second) //~190 cobblestone (give or take for lag and such)
 		toMove := "num" + strconv.Itoa(currentSpace+1)
+		fmt.Println("moving to space: ", toMove)
 		robotgo.KeyTap(toMove)
 		currentSpace++
 	}
-
-	time.Sleep(144000) //~190 cobblestone (give or take for lag and such)
 
 }
