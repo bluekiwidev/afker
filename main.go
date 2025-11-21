@@ -24,17 +24,20 @@ func main() {
 
 	robotgo.MouseDown("left")
 	defer robotgo.MouseUp("left")
-	fmt.Println("Mouse is down")
+	fmt.Println("Mouse is down - using hotbar slot:", currentSpace)
 	defer fmt.Println("Mouse is up")
 
+	// Process all pickaxes from min to max
 	for currentSpace <= max {
-		fmt.Println("Waiting for pickaxe to break")
+		fmt.Println("Waiting for pickaxe to break...")
 		time.Sleep(sleepTime * time.Second) // ~190 cobblestone (give or take for lag and such)
-		// Switch to the next hotbar slot (1-9 keys on keyboard, not numpad)
-		toMove := strconv.Itoa(currentSpace)
-		fmt.Println("Moving to hotbar slot: ", toMove)
-		robotgo.KeyTap(toMove)
 		currentSpace++
+		// Switch to the next hotbar slot if there's one available
+		if currentSpace <= max {
+			toMove := strconv.Itoa(currentSpace)
+			fmt.Println("Switching to hotbar slot:", toMove)
+			robotgo.KeyTap(toMove)
+		}
 	}
 
 }
