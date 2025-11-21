@@ -22,9 +22,14 @@ func main() {
 
 	currentSpace := min
 
+	// Ensure we start with the first hotbar slot selected
+	fmt.Println("Selecting hotbar slot:", currentSpace)
+	robotgo.KeyTap(strconv.Itoa(currentSpace))
+	time.Sleep(100 * time.Millisecond) // Brief delay to ensure key press registers
+
 	robotgo.MouseDown("left")
 	defer robotgo.MouseUp("left")
-	fmt.Println("Mouse is down - using hotbar slot:", currentSpace)
+	fmt.Println("Mouse is down - mining with hotbar slot:", currentSpace)
 	defer fmt.Println("Mouse is up")
 
 	// Process all pickaxes from min to max

@@ -74,11 +74,11 @@ You need [Go](https://go.dev/dl/) installed on your system.
 ## Usage
 
 1. Place pickaxes in your hotbar slots (slots 1-9)
-2. **Select hotbar slot 1 in-game** (the script assumes you start with slot 1)
-3. Position your mouse where you want to mine
-4. Run the application
-5. You have 10 seconds to switch back to your game window
-6. The script will:
+2. Position your mouse where you want to mine
+3. Run the application
+4. You have 10 seconds to switch back to your game window
+5. The script will:
+   - Automatically select hotbar slot 1
    - Hold down the left mouse button
    - Wait for the configured time (default 144 seconds)
    - Automatically switch to the next hotbar slot (2, then 3, then 4, etc.)
