@@ -32,7 +32,7 @@ func main() {
 		time.Sleep(sleepTime * time.Second) //~190 cobblestone (give or take for lag and such)
 		fmt.Println("Mousing up")
 		robotgo.MouseUp("left")
-		toMove := "num" + strconv.Itoa(currentSpace+1)
+		toMove := strconv.Itoa(currentSpace + 1)
 		fmt.Println("moving to space:", toMove)
 		robotgo.KeyTap(toMove)
 		robotgo.MouseDown("left")
