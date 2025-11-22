@@ -5,6 +5,11 @@ name: Go
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. v1.2.3). Required when creating a release via workflow_dispatch.'
+        required: true
+        default: ''
 
 jobs:
 
@@ -119,7 +124,9 @@ jobs:
   release:
     needs: [build-windows-x64, build-macos-x64, build-macos-arm64]
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    # Run this job when the workflow was manually dispatched (so we can pass a version input)
+    # or when a tag starting with 'v' was pushed.
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
     permissions:
       contents: write
     steps:
@@ -131,10 +138,11 @@ jobs:
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
+          # If this run was triggered by workflow_dispatch use the provided input, otherwise use the tag name
+          tag: ${{ github.event_name == 'workflow_dispatch' ? github.event.inputs.version : github.ref_name }}
+          name: Release ${{ github.event_name == 'workflow_dispatch' ? github.event.inputs.version : github.ref_name }}
           body: |
-            ## Release Notes for ${{ github.ref_name }}
+            ## Release Notes for ${{ github.event_name == 'workflow_dispatch' ? github.event.inputs.version : github.ref_name }}
             
             This release includes the following binaries:
             - Windows x64
