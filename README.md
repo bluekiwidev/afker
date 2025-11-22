@@ -27,3 +27,8 @@ go build -o afker.exe .
 ```bash
 run afker.exe
 ```
+## TODO
+- [x] Make it do hotbar switching
+- [ ] Tune timing
+- [ ] add gh actions to compile
+- [ ] support the unsupported
