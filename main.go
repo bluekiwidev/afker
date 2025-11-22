@@ -12,7 +12,7 @@ func main() {
 	// Example for a copper pickaxe mining cobblestone
 	//set hotabar spaces that have copper pickaxe (inclusive)
 	const min = 3         //where the picaxe line starts
-	const max = 7         //where it should end
+	const max = 6         //where it should end
 	const sleepTime = 370 //how long it takes to break a picaxe or until it switches to the next
 	//If mining cobblestone with a cobblestone generator, remember to account for the time it takes to replace the cobblestone
 	fmt.Println("Afker v1.0")
